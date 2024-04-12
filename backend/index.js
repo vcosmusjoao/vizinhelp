@@ -8,7 +8,10 @@ const port = process.env.PORT;
 
 // Routes
 const testRoutes = require('#routes/test');
-const menuItemsRoutes = require('#routes/menuItem');
+const menuItemsRoute = require('#routes/menuItem');
+const productRoute = require('#routes/product.routes');
+const offerRoute = require('#routes/offer.router');
+
 
 const errorHandler = (error, req, res, next) => {
   const status = error.status || 422;
@@ -17,6 +20,7 @@ const errorHandler = (error, req, res, next) => {
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(keycloak.middleware());
 app.use(cors());
@@ -24,7 +28,9 @@ app.use(cors());
 
 // Register routes
 app.use('/api', testRoutes);
-app.use('/api', menuItemsRoutes);
+app.use('/api', menuItemsRoute);
+app.use('/api', productRoute);
+app.use('/api', offerRoute);
 app.use(errorHandler);
 
 app.listen(port, () => {
