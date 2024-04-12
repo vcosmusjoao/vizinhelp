@@ -5,7 +5,7 @@ module.exports = async (req, res, next) => {
       // roles would return an array of strings
   
       const isAdmin = roles.includes("admin");
-  
+      console.log("isAdmin: "+isAdmin);
       if (isAdmin) {
         // If user has Admin role, proceed.
         next();
