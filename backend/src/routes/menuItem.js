@@ -72,4 +72,22 @@ async ( req, res, next) => {
   }
 });
 
+router.get("/user-info", [keycloak.protect(), extractToken], async (req, res, next) => {
+  try {
+    // Extrair informações do token JWT
+    const tokenData = req.tokenData;
+
+    // Retornar informações relevantes do usuário na resposta
+    res.json({
+      name: tokenData.name,
+      username: tokenData.preferred_username,
+      email: tokenData.email,
+      userId: tokenData.sub // ID de usuário
+      // Outras informações relevantes do usuário
+    });
+  } catch (error) {
+    return next(error);
+  }
+});
+
 module.exports = router;

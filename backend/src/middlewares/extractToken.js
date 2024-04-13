@@ -2,21 +2,24 @@ const jwt = require("jsonwebtoken");
 
 module.exports = async (req, res, next) => {
   try {
-    // Decode access token
-    const bearerToken = req.headers.authorization; 
-    // bearerToken would return "Bearer <access_token>"
+    // Verificar se o cabeçalho de autorização está presente
+    const authorizationHeader = req.headers.authorization;
+    if (!authorizationHeader || !authorizationHeader.startsWith("Bearer ")) {
+      return res.status(401).json({ error: "Missing or invalid Authorization header" });
+    }
 
-    const token = bearerToken.split(" ");
-    // token would return ["Bearer", "<access_token>"]
+    // Extrair o token do cabeçalho de autorização
+    const token = authorizationHeader.split(" ")[1];
 
-    const tokenData = jwt.decode(token[1]);
-    // tokenData would return user's data
+    // Decodificar o token JWT
+    const tokenData = jwt.decode(token);
 
-    // Store decoded token data in request
+    // Armazenar os dados do token decodificado no objeto de solicitação (req)
     req.tokenData = tokenData;
 
+    // Chamar o próximo middleware na cadeia
     next();
   } catch (error) {
     next(error);
   }
-}
+};
