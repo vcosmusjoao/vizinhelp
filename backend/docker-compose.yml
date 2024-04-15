@@ -8,9 +8,9 @@ services:
       POSTGRES_USER: admin
       POSTGRES_DB: vizinhelp-bd
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
-      - postgresdata:/var/lib/postgresql/data
+      - ./docker_data/postgres:/var/lib/postgresql/data
 
   keycloak:
     image: quay.io/keycloak/keycloak:20.0
@@ -26,7 +26,9 @@ services:
     command:
       - start-dev
     volumes:
-      - keycloakdata:/opt/jboss/keycloak/standalone/data
+      - ./docker_data/keycloak:/data
+    depends_on:
+      - postgres
 
   pgadmin:
     image: dpage/pgadmin4
@@ -37,7 +39,3 @@ services:
       - "5050:80"
     depends_on:
       - postgres
-      
-volumes:
-  postgresdata:  # Define o volume para dados do PostgreSQL
-  keycloakdata:  # Define o volume para dados do Keycloak
