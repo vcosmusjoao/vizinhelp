@@ -22,6 +22,8 @@
   },
   "imports": {
     "#routes/*": "./src/routes/*.js",
-    "#middlewares/*": "./src/middlewares/*.js"
+    "#middlewares/*": "./src/middlewares/*.js",
+    "#controllers/*":"./src/controllers/*.js"
+
   }
 }
