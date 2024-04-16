@@ -1,8 +1,16 @@
-<div class="navbar">
-    <div *ngIf="isAuthenticated; else loggedOut">
-        <button (click)="onLogout()">Logout</button>
+
+<mat-toolbar color="primary" class="custom-toolbar">
+    <span class="logo" routerLink="/">VIZINHELP</span>
+    <span class="menu-items">
+      <span class="menu-item" routerLink="/sobre" routerLinkActive="active">Sobre</span>
+      <span class="menu-item" routerLink="/contato" routerLinkActive="active">Compartilhar</span>
+      <span class="menu-item" routerLink="/faq" routerLinkActive="active">FAQ</span>
+      <span class="menu-item" routerLink="/ofertas" routerLinkActive="active" *ngIf="isAuthenticated">Minhas Ofertas</span>
+    </span>
+    <div class="fill-space"></div>
+    <div class="auth-buttons">
+        <button mat-button *ngIf="!isAuthenticated" class="custom-mat-button" (click)="onLogin()">Login</button>
+        <button mat-button *ngIf="!isAuthenticated" class="custom-mat-button" (click)="onRegister()">Cadastro</button>
+        <button mat-button *ngIf="isAuthenticated" class="custom-mat-button" (click)="onLogout()">Sair</button>
     </div>
-    <ng-template #loggedOut>
-        <button (click)="onLogin()">Login</button>
-    </ng-template>
-</div>
+</mat-toolbar>

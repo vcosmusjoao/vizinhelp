@@ -1,0 +1,26 @@
+.session{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height:auto;
+    padding:5%;
+}
+.title h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 120%;
+}
+.content {
+    position: relative; /* Para permitir o posicionamento do pseudo-elemento */
+    padding-left: 20px; /* Espaçamento à esquerda para o texto */
+  }
+.content::before {
+    content: ''; /* O conteúdo do pseudo-elemento */
+    position: absolute;
+    left: 0;
+    top: 50%; /* Posiciona o ícone no centro vertical */
+    transform: translateY(-50%);
+    height: 100%; /* Altura igual à altura do conteúdo */
+    width: 2px; /* Largura da linha */
+    background-color: #4A6B37; /* Cor da linha */
+  }
