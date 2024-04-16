@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OfferService } from '../../../shared/service/offer/offer.service';
 import { ActivatedRoute } from '@angular/router';
+import { CepService } from '../../../shared/service/cep/cep.service';
 
 @Component({
   selector: 'app-offers-details',
@@ -10,10 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 export class OffersDetailsComponent implements OnInit{
 
   oferta: any;
+  endereco: any;
   
   constructor(
     private route: ActivatedRoute,
-    private offerService: OfferService
+    private offerService: OfferService,
+    private cepService: CepService
   ) { }
 
 
@@ -22,8 +25,12 @@ export class OffersDetailsComponent implements OnInit{
     const id = +params['id'];
     this.offerService.getOfferDetails(id).subscribe((oferta: any)=>{
       this.oferta = oferta;
-    })
-   })
+      this.cepService.getAddressByCep(oferta.cep).subscribe((endereco : any)=>{
+        this.endereco = endereco;
+      });
+    });
+   });
+   console.log(this.endereco)
   }
 
   

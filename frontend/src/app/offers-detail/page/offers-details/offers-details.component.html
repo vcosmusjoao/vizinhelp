@@ -1,8 +1,8 @@
+<h1 class="titulo">{{ oferta.title }}</h1>
+<div class="subtitle">Categoria: {{oferta.category}}</div>
+
 <div *ngIf="oferta" class="detalhes-oferta">
-    <!-- Título -->
-    <h1 class="titulo">{{ oferta.title }}</h1>
-  
-    <!-- Imagem -->
+
     <img class="imagem-oferta" [src]="oferta.image_url" alt="Imagem da Oferta">
   
     <!-- Grid com descrição e informações -->
@@ -17,9 +17,8 @@
       <div class="coluna-informacoes">
         <h2 class="subtitulo">Informações</h2>
         <ul>
-          <li><strong>Onde:</strong> {{ oferta.cep }}</li>
+          <li><strong>Onde:</strong> {{ endereco.logradouro }}</li>
           <li><strong>Quando:</strong> {{ oferta.availability }}</li>
-          <li><strong>Categoria:</strong> {{ oferta.category }}</li>
           <li><strong>Quantidade:</strong> {{ oferta.capacity }}</li>
           <li><strong>Requisitos:</strong> {{ oferta.requirements }}</li>
 
