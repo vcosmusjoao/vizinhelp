@@ -13,7 +13,4 @@
         <button mat-button *ngIf="!isAuthenticated" class="custom-mat-button" (click)="onRegister()">Cadastro</button>
         <button mat-button *ngIf="isAuthenticated" class="custom-mat-button" (click)="onLogout()">Sair</button>
     </div>
-    <ng-template #loggedOut>
-        <button (click)="onLogin()">Login</button>
-    </ng-template>
-</div>
+</mat-toolbar>
