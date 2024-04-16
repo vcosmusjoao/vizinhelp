@@ -1,18 +1,29 @@
 .detalhes-oferta {
-    max-width: 80%;
+    max-width: 90%;
     margin: auto;
   }
   
   .titulo {
+    padding-right: 5%;
+    padding-left: 5%;
     font-size: 48px;
     margin-top:5%;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
   }
+
+  .subtitle {
+    padding-right: 5%;
+    padding-left: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #555; /* Cor do subtitulo */
+  }
   
   .imagem-oferta {
     width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;
     margin-top: 20px;
   }
