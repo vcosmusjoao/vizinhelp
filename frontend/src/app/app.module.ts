@@ -20,6 +20,7 @@ import { HowItWorksSessionComponent } from './home/components/how-it-works-sessi
 import { OffersListSessionComponent } from './home/components/offers-list-session/offers-list-session.component';
 import { MatCardModule } from '@angular/material/card';
 import { OffersDetailsComponent } from './offers-detail/page/offers-details/offers-details.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { OffersDetailsComponent } from './offers-detail/page/offers-details/offe
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService]
-    }
+    },
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
