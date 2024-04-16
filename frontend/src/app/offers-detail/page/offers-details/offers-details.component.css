@@ -1,0 +1,38 @@
+.detalhes-oferta {
+    max-width: 80%;
+    margin: auto;
+  }
+  
+  .titulo {
+    font-size: 48px;
+    margin-top:5%;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .imagem-oferta {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: 20px;
+  }
+  
+  .grid {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .coluna-descricao {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .coluna-informacoes {
+    flex: 1;
+  }
+  
+  .subtitulo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

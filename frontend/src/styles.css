@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: #DEDEDE;
+}
+:root {
+    --color-primary: #DEDEDE;
+    --color-secondary: #4A6B37;
+    --color-primary-text: #000;
+    --color-secondary-text: #ffffff;
+
+
+  }
+
+[mat-button].custom-mat-button {
+  height: 40px;
+  font-size: 16px;
+  padding: 0 16px;
+  background-color: var(--color-primary);
+  border-radius: 0;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+  margin-right: 16px;
+}

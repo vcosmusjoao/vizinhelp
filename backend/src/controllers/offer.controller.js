@@ -3,7 +3,7 @@ const db = require("../config/database");
 exports.createOffer = async (req, res) => {
   try {
     // Extrair os dados da requisição
-    const { title, imageUrl, cep, availability, category, capacity, requirements, description } = req.body;
+    const { title, image_url, cep, availability, category, capacity, requirements, description } = req.body;
 
     // Obter o ID do usuário do token decodificado
     const keycloakUserId = req.tokenData.sub;
@@ -11,7 +11,7 @@ exports.createOffer = async (req, res) => {
     // Executar a consulta SQL para inserir a nova oferta
     const { rows } = await db.query(
       "INSERT INTO offers (keycloak_user_id, title, image_url, cep, availability, category, capacity, requirements, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
-      [keycloakUserId, title, imageUrl, cep, availability, category, capacity, requirements, description]
+      [keycloakUserId, title, image_url, cep, availability, category, capacity, requirements, description]
     );
 
     // Enviar a resposta de sucesso com os dados da oferta criada

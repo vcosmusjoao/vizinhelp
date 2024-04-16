@@ -1,0 +1,56 @@
+.session {
+    display: flex;
+    padding:5%;
+    justify-content: center; /* Centraliza os elementos horizontalmente */
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha quando não houver espaço suficiente */
+  }
+  
+  .card {
+    flex: 0 0  calc(50% - 20px); /* Define a largura dos cards. Neste exemplo, eles ocuparão metade do espaço disponível menos a margem */
+    margin: 2%; /* Adiciona margem entre os cards */
+    max-width: calc(30% - 20px); /* Define a largura máxima dos cards */
+  }
+  
+  .card img {
+    width: 390px; /* Largura fixa */
+    height: 300px; /* Altura fixa */
+    object-fit: cover; 
+  }
+
+  mat-card{
+    background-color: transparent;
+    border-radius: 0; /* Remove as bordas arredondadas */
+    box-shadow: none; 
+  }
+
+  .session-title {
+    padding-right:5%;
+    padding-left:5%;
+
+  }
+  
+  .session-title .title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+  }
+  
+  .session-title .subtitle {
+    padding-top:2%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #555; /* Cor do subtitulo */
+  }
+
+  .info-text-card .title{
+    font-size:24px;
+    font-weight: bold;
+    padding-top:2%;
+    padding-bottom:2%;
+
+  }
+
+  .info-text-card .category {
+    margin-top:10px;
+  }

@@ -21,6 +21,10 @@ export class AuthService {
     this.keycloakService.logout();
   }
 
+  register():void {
+    this.keycloakService.register();
+  }
+
   isLoggedIn(): boolean {
     return this.keycloakService.isLoggedIn();
   }

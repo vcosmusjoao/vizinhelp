@@ -18,4 +18,8 @@ export class OfferService {
     return this.http.get<any[]>(this.baseUrl+"/user");
   }
 
+  getOfferDetails(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${id}`);
+  }
+
 }

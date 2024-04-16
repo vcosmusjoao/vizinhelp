@@ -1,0 +1,17 @@
+
+<div class="session-title">
+    <div class="title">Descubra Ofertas de Serviços</div>
+    <div class="subtitle">Explore os talentos e serviços oferecidos pelos seus vizinhos!</div>
+  </div>
+<div class="session">
+    <mat-card class="card" *ngFor="let item of items" (click)="irParaDetalhes(item.offer_id)">
+        <img mat-card-image src="{{item.image_url}}" alt="Imagem">
+        <div class="info-text-card">
+            <div class="category">Categoria: {{ item.category }}</div>
+            <div class="title">{{ item.title }}</div>
+            <div class="description">{{ item.description }}</div>
+        </div>
+    </mat-card>
+</div>
+  
+  
