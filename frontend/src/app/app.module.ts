@@ -9,7 +9,6 @@ import { HomePageComponent } from './home/page/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { initializeKeycloak } from './config/init/keycloak-init.factory';
 import { NavbarComponent } from './shared/component/navbar/navbar.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
