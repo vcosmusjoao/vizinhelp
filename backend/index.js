@@ -7,10 +7,9 @@ const keycloak = require('#middlewares/keycloak'); // Keycloak
 const port = process.env.PORT;
 
 // Routes
-const testRoutes = require('#routes/test');
-const menuItemsRoute = require('#routes/menuItem');
-const productRoute = require('#routes/product.routes');
 const offerRoute = require('#routes/offer.router');
+const userRoute = require('#routes/user.router');
+
 
 
 const errorHandler = (error, req, res, next) => {
@@ -26,11 +25,10 @@ app.use(keycloak.middleware());
 app.use(cors());
 
 
-// Register routes
-app.use('/api', testRoutes);
-app.use('/api', menuItemsRoute);
-app.use('/api', productRoute);
+
+app.use('/api', userRoute);
 app.use('/api', offerRoute);
+
 app.use(errorHandler);
 
 app.listen(port, () => {
