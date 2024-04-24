@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { OfferComponent } from './shared/component/offer/offer.component';
 import { HomePageComponent } from './home/page/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { initializeKeycloak } from './config/init/keycloak-init.factory';
@@ -13,6 +12,7 @@ import { NavbarComponent } from './shared/component/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
 import { HeaderComponent } from './home/components/header/header.component';
 import { CallToActionComponent } from './home/components/call-to-action/call-to-action.component';
 import { InfoSessionComponent } from './home/components/info-session/info-session.component';
@@ -21,23 +21,29 @@ import { OffersListSessionComponent } from './home/components/offers-list-sessio
 import { MatCardModule } from '@angular/material/card';
 import { OffersDetailsComponent } from './offers-detail/page/offers-details/offers-details.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HeaderInfoComponent } from './shared/component/header-info/header-info/header-info.component';
+import { OfferUserPageComponent } from './offers-user/page/offer-user-page.component';
+import { OfferUserListComponent } from './offers-user/components/offer-user-list/offer-user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderInfoComponent,
+    OfferUserPageComponent,
     HomePageComponent,
-    OfferComponent,
     NavbarComponent,
     HeaderComponent,
     CallToActionComponent,
     InfoSessionComponent,
     HowItWorksSessionComponent,
     OffersListSessionComponent,
-    OffersDetailsComponent
+    OffersDetailsComponent,
+    OfferUserListComponent,
   ],
   imports: [
     MatCardModule,
     MatToolbarModule,
+    MatTableModule,
     MatButtonModule,
     MatIconModule,
     BrowserModule,

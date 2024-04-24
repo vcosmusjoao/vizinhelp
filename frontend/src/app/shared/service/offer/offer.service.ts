@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class OfferService {
 
-  private baseUrl = 'http://localhost:3000/api/offers'; // Substitua pela URL do seu backend
+  private baseUrl = 'http://localhost:3000/api/offers'; 
 
   constructor(private http: HttpClient) { }
 
