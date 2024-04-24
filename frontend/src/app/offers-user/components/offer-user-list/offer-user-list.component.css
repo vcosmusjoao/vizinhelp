@@ -1,0 +1,27 @@
+.mat-mdc-table {
+    table-layout: auto;
+    white-space: normal;
+    background-color: transparent;
+    color: black;
+padding: 10%;
+}
+
+
+
+.mat-mdc-table.mat-elevation-z0 {
+    box-shadow: none; /* Remove sombra */
+}
+
+.mat-mdc-header-cell{
+    color:black;
+    font-weight: bold;
+    border: 1px solid black; 
+}
+
+.mat-mdc-cell {
+    border: 1px solid black; 
+}
+
+.mat-mdc-row {
+    color: #000;
+}

@@ -1,0 +1,42 @@
+.header {
+    position: relative;
+    height: 330px;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/info-header-image.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2; /* Opacidade da imagem (0 a 1) */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Cor preta com 20% de opacidade */
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+    z-index: 1; /* Para garantir que o conteúdo esteja acima da sobreposição */
+}
+
+.title {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: white; /* Cor do texto, ajuste conforme necessário */
+}
