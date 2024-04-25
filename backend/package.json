@@ -23,7 +23,9 @@
   "imports": {
     "#routes/*": "./src/routes/*.js",
     "#middlewares/*": "./src/middlewares/*.js",
-    "#controllers/*":"./src/controllers/*.js"
-
+    "#controllers/*": "./src/controllers/*.js"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
