@@ -1,4 +1,5 @@
 const db = require("../config/database");
+const { Offer } = require("../models/offer");
 
 exports.createOffer = async (req, res) => {
   try {
@@ -31,7 +32,8 @@ exports.createOffer = async (req, res) => {
 exports.getAllOffers = async (req, res) => {
   try {
       const { rows } = await db.query("SELECT * FROM offers");
-      res.status(200).json(rows);
+      const offersDTO = rows.map(offer=> new Offer(offer));
+      res.status(200).json(offersDTO);
   } catch (error) {
       res.status(500).json({ error: error.message });
   }
@@ -41,10 +43,12 @@ exports.getOfferById = async (req, res) => {
   try {
       const { id } = req.params;
       const { rows } = await db.query("SELECT * FROM offers WHERE offer_id = $1", [id]);
-      if (rows.length === 0) {
+      const offersDTO = rows.map(offer=> new Offer(offer));
+      if (offersDTO.length === 0) {
           return res.status(404).json({ message: "Oferta não encontrada" });
       }
-      res.status(200).json(rows[0]);
+
+      res.status(200).json(offersDTO[0]);
   } catch (error) {
       res.status(500).json({ error: error.message });
   }
@@ -57,8 +61,8 @@ exports.getUserOffers = async (req, res) => {
 
     // Consulta para buscar as ofertas do usuário pelo ID do Keycloak
     const { rows } = await db.query("SELECT * FROM offers WHERE keycloak_user_id = $1", [keycloakUserId]);
-
-    res.status(200).json(rows);
+    const offersDTO = rows.map(offer=> new Offer(offer));
+    res.status(200).json(offersDTO);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

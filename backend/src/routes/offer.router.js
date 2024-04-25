@@ -9,8 +9,6 @@ router.post('/offers',[keycloak.protect(), extractToken], offerController.create
 
 router.get('/offers', offerController.getAllOffers);
 router.get('/offers/user', [keycloak.protect(), extractToken], offerController.getUserOffers);
-
-
 router.get('/offers/:id', offerController.getOfferById);
 
 
