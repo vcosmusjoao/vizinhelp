@@ -1,15 +1,34 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './shared/component/navbar/navbar.component';
+import { MatTableModule } from '@angular/material/table';
+import { AuthService } from './shared/service/auth/auth.service';
+import { KeycloakService } from 'keycloak-angular';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HeaderInfoComponent } from './shared/component/header-info/header-info/header-info.component';
+import { HeaderComponent } from './home/components/header/header.component';
+import { OffersDetailsComponent } from './offers-detail/page/offers-details/offers-details.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
+      providers:[
+        AuthService,
+        KeycloakService
       ],
+      imports: [
+        RouterTestingModule,
+        MatTableModule,
+        MatToolbarModule
+      ],
+    
       declarations: [
-        AppComponent
+        AppComponent,
+        NavbarComponent,
+        HeaderInfoComponent,
+        HeaderComponent,
+        OffersDetailsComponent
       ],
     }).compileComponents();
   });
@@ -26,10 +45,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('frontend');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, frontend');
-  });
 });

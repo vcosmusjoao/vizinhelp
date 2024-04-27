@@ -24,6 +24,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { HeaderInfoComponent } from './shared/component/header-info/header-info/header-info.component';
 import { OfferUserPageComponent } from './offers-user/page/offer-user-page.component';
 import { OfferUserListComponent } from './offers-user/components/offer-user-list/offer-user-list.component';
+import { UserService } from './shared/service/user/user.service';
+import { CepService } from './shared/service/cep/cep.service';
+import { AuthService } from './shared/service/auth/auth.service';
+import { OfferService } from './shared/service/offer/offer.service';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,11 @@ import { OfferUserListComponent } from './offers-user/components/offer-user-list
     HttpClientModule
   ],
   providers: [
+    UserService,
+    CepService,
+    AuthService, 
+    OfferService,
+    KeycloakService,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,

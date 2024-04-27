@@ -21,16 +21,16 @@ export class OffersDetailsComponent implements OnInit{
 
 
   ngOnInit(): void {
-   this.route.params.subscribe(params =>{
-    const id = +params['id'];
-    this.offerService.getOfferDetails(id).subscribe((oferta: any)=>{
-      this.oferta = oferta;
-      this.cepService.getAddressByCep(oferta.cep).subscribe((endereco : any)=>{
-        this.endereco = endereco;
+    this.route.params.subscribe(params => {
+      const id = +params['id'];
+      this.offerService.getOfferDetails(id).subscribe((oferta: any) => {
+        this.oferta = oferta;
+        this.cepService.getAddressByCep(oferta.cep).subscribe((endereco: any) => {
+          this.endereco = endereco;
+          console.log(this.endereco); // Movido o console.log para dentro da assinatura
+        });
       });
     });
-   });
-   console.log(this.endereco)
   }
 
   
