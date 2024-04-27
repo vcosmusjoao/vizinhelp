@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OffersListSessionComponent } from './offers-list-session.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('OffersListSessionComponent', () => {
   let component: OffersListSessionComponent;
@@ -8,7 +9,9 @@ describe('OffersListSessionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OffersListSessionComponent]
+      declarations: [OffersListSessionComponent],
+      imports: [HttpClientModule]
+
     })
     .compileComponents();
     

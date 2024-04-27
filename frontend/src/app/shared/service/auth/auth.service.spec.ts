@@ -1,12 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
+import { KeycloakService } from 'keycloak-angular';
 
 describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers:[
+        AuthService,
+        KeycloakService
+      ]
+    });
     service = TestBed.inject(AuthService);
   });
 
