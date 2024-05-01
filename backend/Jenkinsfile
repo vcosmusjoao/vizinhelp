@@ -10,8 +10,10 @@ pipeline {
         }
         
         stage('Install Dependencies') {
-            steps {
-                bat 'npm install'
+                steps {
+                    dir('backend') {
+                    bat 'npm install'
+                }
             }
         }
         
