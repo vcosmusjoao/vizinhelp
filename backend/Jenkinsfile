@@ -1,10 +1,11 @@
 pipeline {
     agent any
-    
+    tools {nodejs "Node"}
     stages {
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
-                git 'https://github.com/vcosmusjoao/vizinhelp.git'
+                git branch: 'main',
+                    url:'https://github.com/vcosmusjoao/vizinhelp.git'
             }
         }
         
