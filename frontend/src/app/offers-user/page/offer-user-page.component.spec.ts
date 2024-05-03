@@ -15,7 +15,6 @@ describe('OfferUserPageComponent', () => {
       declarations: [
         OfferUserPageComponent,
          HeaderInfoComponent,
-          OfferUserPageComponent, 
           OfferUserListComponent],
       imports: [HttpClientModule,  
                MatTableModule,
