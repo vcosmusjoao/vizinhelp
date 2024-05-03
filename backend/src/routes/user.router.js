@@ -8,7 +8,7 @@ const userController = require('../controllers/user.controller');
 
 
 
-router.get('/userinfo',[keycloak.protect(), extractToken], userController.getUserInfo);
+router.get('/user-info',[keycloak.protect(), extractToken], userController.getUserInfo);
 
 
 module.exports = router;
