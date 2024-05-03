@@ -4,7 +4,7 @@ const { Offer } = require("../models/offer");
 exports.createOffer = async (req, res) => {
   try {
     // Extrair os dados da requisição
-    const { title, image_url, cep, availability, category, capacity, requirements, description } = req.body;
+    const newOffer = new Offer(req.body);
 
     // Obter o ID do usuário do token decodificado
     const keycloakUserId = req.tokenData.sub;
@@ -12,7 +12,7 @@ exports.createOffer = async (req, res) => {
     // Executar a consulta SQL para inserir a nova oferta
     const { rows } = await db.query(
       "INSERT INTO offers (keycloak_user_id, title, image_url, cep, availability, category, capacity, requirements, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
-      [keycloakUserId, title, image_url, cep, availability, category, capacity, requirements, description]
+      [keycloakUserId, newOffer.title, newOffer.image_url, newOffer.cep, newOffer.availability, newOffer.category, newOffer.capacity, newOffer.requirements, newOffer.description]
     );
 
     // Enviar a resposta de sucesso com os dados da oferta criada
