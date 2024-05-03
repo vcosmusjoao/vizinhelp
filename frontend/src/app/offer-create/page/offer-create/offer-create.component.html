@@ -1,1 +1,71 @@
-<app-header-info title="Ebaa! Você Esta À Um Passo De Criar Uma Comunidade Mais Unida e Engajada!"></app-header-info>
+<app-header-info title="Eba! Você Esta À Um Passo De Criar Uma Comunidade Mais Unida e Engajada!"></app-header-info>
+<div class="session">
+   <div class="session-title">
+      <div class="title">Contribua com sua Comunidade!</div>
+   </div>
+   <mat-card>
+      <mat-card-content>
+         <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div fxLayout="row" fxLayoutAlign="start center">
+               <!-- Primeira Linha -->
+               <div fxFlex="70%">
+                  <mat-form-field class="full-width" >
+                     <mat-label>Qual serviço/talento/skills você quer oferecer?</mat-label>
+                     <input matInput formControlName="title">
+                  </mat-form-field>
+               </div>
+               <div fxFlex="30%">
+                <mat-form-field class="full-width" >
+                    <mat-label>Link- Imagem</mat-label>
+                    <input matInput formControlName="image_url">
+                 </mat-form-field>
+               </div>
+            </div>
+            <div fxLayout="row">
+               <div fxFlex="33%">
+                  <mat-form-field class="full-width ">
+                     <mat-label>Categorias</mat-label>
+                     <input matInput formControlName="category">
+                  </mat-form-field>
+               </div>
+               <div fxFlex="33%">
+                  <mat-form-field  class="full-width">
+                     <mat-label>Localização</mat-label>
+                     <input matInput formControlName="cep">
+                  </mat-form-field>
+               </div>
+               <div fxFlex="33%">
+                  <mat-form-field  class="full-width">
+                     <mat-label>Data</mat-label>
+                     <input matInput type="date" formControlName="availability">
+                  </mat-form-field>
+               </div>
+            </div>
+            <!-- Terceira Linha -->
+            <div fxLayout="row">
+               <div fxFlex="70%">
+                  <mat-form-field  class="full-width">
+                     <mat-label>Requisitos e/ou Preferências</mat-label>
+                     <input matInput formControlName="requirements">
+                  </mat-form-field>
+               </div>
+               <div fxFlex="30%">
+                  <mat-form-field  class="full-width">
+                     <mat-label>Quantidade</mat-label>
+                     <input matInput type="number" formControlName="capacity">
+                  </mat-form-field>
+               </div>
+            </div>
+            <!-- Quarta Linha -->
+            <div>
+               <mat-form-field class="full-width">
+                  <mat-label>Descrição</mat-label>
+                  <textarea matInput formControlName="description" rows="5"></textarea>
+               </mat-form-field>
+            </div>
+            <!-- Botão de Submissão -->
+            <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Salvar</button>
+         </form>
+      </mat-card-content>
+   </mat-card>
+</div>
