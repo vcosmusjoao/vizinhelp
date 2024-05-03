@@ -29,6 +29,9 @@ import { CepService } from './shared/service/cep/cep.service';
 import { AuthService } from './shared/service/auth/auth.service';
 import { OfferService } from './shared/service/offer/offer.service';
 import { OfferCreateComponent } from './offer-create/page/offer-create/offer-create.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,12 @@ import { OfferCreateComponent } from './offer-create/page/offer-create/offer-cre
   imports: [
     MatCardModule,
     MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatButtonModule,
     MatIconModule,
