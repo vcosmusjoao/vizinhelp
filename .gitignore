@@ -130,3 +130,5 @@ dist
 .pnp.*
 backend/docker_data
 frontend/.nx/cache
+backend/us-east-1-bundle.pem
+backend/.env.prod
