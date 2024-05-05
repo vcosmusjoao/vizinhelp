@@ -2,18 +2,17 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:15
+    image: 'postgres:15'
     environment:
       POSTGRES_PASSWORD: admin
       POSTGRES_USER: admin
       POSTGRES_DB: vizinhelp-bd
     ports:
-      - "5433:5432"
+      - '5433:5432'
     volumes:
-      - ./docker_data/postgres:/var/lib/postgresql/data
-
+      - './docker_data/postgres:/var/lib/postgresql/data'
   keycloak:
-    image: quay.io/keycloak/keycloak:20.0
+    image: 'quay.io/keycloak/keycloak:20.0'
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
@@ -22,20 +21,19 @@ services:
       KC_DB_USERNAME: postgres
       KC_DB_PASSWORD: vizinhelp
     ports:
-      - 9090:8080
+      - '9090:8080'
     command:
       - start-dev
     volumes:
-      - ./docker_data/keycloak:/data
+      - './docker_data/keycloak:/data'
     depends_on:
       - postgres
-
   pgadmin:
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
-      - "5050:80"
+      - '5050:80'
     depends_on:
       - postgres
