@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   postgres:
     image: postgres:15
@@ -16,9 +18,9 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
       KC_DB: postgres
-      KC_DB_URL: jdbc:postgresql://postgres/vizinhelp-bd
-      KC_DB_USERNAME: admin
-      KC_DB_PASSWORD: admin
+      KC_DB_URL: jdbc:postgresql://vizinhelp-bd.crkq2o86ubrq.us-east-1.rds.amazonaws.com:5432/vizinhelp-bd
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: vizinhelp
     ports:
       - 9090:8080
     command:
