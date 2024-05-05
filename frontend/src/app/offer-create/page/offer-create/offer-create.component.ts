@@ -39,9 +39,6 @@ export class OfferCreateComponent {
             // Aqui você pode tratar o erro adequadamente, por exemplo, mostrando uma mensagem de erro ao usuário
           }
         );
-    } else {
-      console.error('Formulário inválido. Por favor, preencha todos os campos corretamente.');
-      // Aqui você pode mostrar uma mensagem de erro ao usuário informando que o formulário está inválido
     }
   }
 

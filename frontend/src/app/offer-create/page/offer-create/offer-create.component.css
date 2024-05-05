@@ -18,7 +18,9 @@
     padding-right:5%;
     padding-left:5%;
     margin-top:2%;
+
 }
+
 
 .full-width {
     width: 100%;
@@ -27,27 +29,10 @@ mat-card{
     background-color: transparent;
     border-radius: 0; /* Remove as bordas arredondadas */
     box-shadow: none; 
+    
   }
-.mat-mdc-card{
-    border-radius: 0; /* Remove as bordas arredondadas */
-    box-shadow: none; 
-}
 
-:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__leading {
-    border-color: red !important;
-}
 
-:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__notch {
-    border-color: red !important;
-}
-
-:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__trailing {
-    border-color: red !important;
-}
-
-:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__leading {
-    border-color: red !important;
-}
 
 
 @media (min-width: 600px) {

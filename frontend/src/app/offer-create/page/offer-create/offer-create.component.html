@@ -22,19 +22,19 @@
                </div>
             </div>
             <div fxLayout="row">
-               <div fxFlex="33%">
-                  <mat-form-field class="full-width ">
+               <div fxFlex="30%">
+                  <mat-form-field class="full-width">
                      <mat-label>Categorias</mat-label>
                      <input matInput formControlName="category">
                   </mat-form-field>
                </div>
-               <div fxFlex="33%">
+               <div fxFlex="40%">
                   <mat-form-field  class="full-width">
                      <mat-label>Localização</mat-label>
                      <input matInput formControlName="cep">
                   </mat-form-field>
                </div>
-               <div fxFlex="33%">
+               <div fxFlex="30%">
                   <mat-form-field  class="full-width">
                      <mat-label>Data</mat-label>
                      <input matInput type="date" formControlName="availability">
@@ -64,7 +64,7 @@
                </mat-form-field>
             </div>
             <!-- Botão de Submissão -->
-            <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Salvar</button>
+            <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Criar Oferta</button>
          </form>
       </mat-card-content>
    </mat-card>
