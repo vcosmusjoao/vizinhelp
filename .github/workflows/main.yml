@@ -7,7 +7,8 @@ jobs:
   Deploy-Remotely:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
     - name: Change Directory to Frontend
       run: cd frontend   # Substitua 'frontend' pelo nome correto do diretório do seu projeto Angular
     - name: Use Node.js 20.x to Build
