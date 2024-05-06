@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private keycloakService: KeycloakService) { }
 
   keycloakLoginOptions: KeycloakLoginOptions = {
-    redirectUri: 'http://34.226.195.209/ofertas'
+    redirectUri: 'http://ec2-34-226-195-209.compute-1.amazonaws.com/ofertas'
   }
 
   login():void {
