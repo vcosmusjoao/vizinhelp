@@ -6,6 +6,8 @@ const offerController = require('../controllers/offer.controller');
 
 // Endpoint para criar uma nova oferta
 router.post('/offers',[keycloak.protect(), extractToken], offerController.createOffer);
+router.post('/offers/interest', [keycloak.protect(), extractToken], offerController.sendInterestEmail);
+
 
 router.get('/offers', offerController.getAllOffers);
 router.get('/offers/user', [keycloak.protect(), extractToken], offerController.getUserOffers);

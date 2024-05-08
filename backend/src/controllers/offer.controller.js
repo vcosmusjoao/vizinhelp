@@ -1,4 +1,6 @@
 const db = require("../config/database");
+const nodemailer = require('nodemailer');
+
 const { Offer } = require("../models/offer");
 
 exports.createOffer = async (req, res) => {
@@ -42,7 +44,7 @@ exports.getAllOffers = async (req, res) => {
 exports.getOfferById = async (req, res) => {
   try {
       const { id } = req.params;
-      const { rows } = await db.query("SELECT * FROM offers WHERE offer_id = $1", [id]);
+      const { rows } = await db.query("SELECT * FROM offers WHERE C = $1", [id]);
       const offersDTO = rows.map(offer=> new Offer(offer));
       if (offersDTO.length === 0) {
           return res.status(404).json({ message: "Oferta não encontrada" });
@@ -65,5 +67,49 @@ exports.getUserOffers = async (req, res) => {
     res.status(200).json(offersDTO);
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+};
+
+exports.sendInterestEmail = async (req, res) => {
+  try {
+    const { name, email, message, offerId } = req.body;
+
+    const { rows } = await db.query(
+      "SELECT email FROM user_entity WHERE id = (SELECT keycloak_user_id FROM offers WHERE offer_id = $1)",
+      [offerId]
+    );
+
+    const recipientEmail = rows[0].email;
+
+    // Configuração do e-mail
+    const transporter = nodemailer.createTransport({
+      // Configure conforme os detalhes do seu provedor de e-mail
+      service: 'gmail',
+      auth: {
+        user: 'vizinhelp@gmail.com',
+        pass: process.env.PASSWORD_SENDER
+      }
+    });
+
+    const mailOptions = {
+      from: 'vizinhelp@gmail.com',
+      to: recipientEmail,
+      subject: 'Interesse na sua oferta',
+      text: `Nome: ${name}\nE-mail: ${email}\nMensagem: ${message}`
+    };
+
+    // Envio do e-mail
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+        res.status(500).send('Erro ao enviar e-mail');
+      } else {
+        console.log('E-mail enviado: ' + info.response);
+        res.status(200).send('E-mail enviado com sucesso');
+      }
+    });
+  } catch (error) {
+    console.error("Error sending interest email:", error);
+    res.status(500).json({ error: "Failed to send interest email" });
   }
 };
