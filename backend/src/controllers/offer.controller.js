@@ -44,7 +44,7 @@ exports.getAllOffers = async (req, res) => {
 exports.getOfferById = async (req, res) => {
   try {
       const { id } = req.params;
-      const { rows } = await db.query("SELECT * FROM offers WHERE C = $1", [id]);
+      const { rows } = await db.query("SELECT * FROM offers WHERE offer_id = $1", [id]);
       const offersDTO = rows.map(offer=> new Offer(offer));
       if (offersDTO.length === 0) {
           return res.status(404).json({ message: "Oferta não encontrada" });
