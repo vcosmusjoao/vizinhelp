@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://ec2-54-227-175-23.compute-1.amazonaws.com:3000/api/user-info'; 
+  private baseUrl = 'http://ec2-3-94-110-163.compute-1.amazonaws.com:3000/api/user-info'; 
   constructor(private http: HttpClient) { }
 
   getInfoUser(): Observable<any> {

@@ -1,0 +1,43 @@
+
+
+.session-title {
+ 
+    margin-top:5%;
+    margin-bottom:5%;
+
+  }
+  
+  .session-title .title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+
+  .session {
+    padding-right:5%;
+    padding-left:5%;
+    margin-top:2%;
+
+}
+
+
+.full-width {
+    width: 500px; /* ou qualquer outra largura desejada */
+
+}
+mat-card{
+    background-color: transparent;
+    border-radius: 0; /* Remove as bordas arredondadas */
+    box-shadow: none; 
+    
+  }
+
+
+
+
+@media (min-width: 600px) {
+    .session {
+        flex-direction: row;
+    }
+}

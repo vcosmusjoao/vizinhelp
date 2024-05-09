@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class OfferService {
 
-  private baseUrl = 'http://ec2-54-227-175-23.compute-1.amazonaws.com:3000/api/offers'; 
+  private baseUrl = 'http://ec2-3-94-110-163.compute-1.amazonaws.com:3000/api/offers'; 
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +24,10 @@ export class OfferService {
 
   postOffer(offerData: any): Observable<any> {
     return this.http.post<any>(this.baseUrl, offerData);
+  }
+
+  sendInterest(formData: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/interest`, formData);
   }
 
 }
