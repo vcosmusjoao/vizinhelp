@@ -105,7 +105,7 @@ exports.sendInterestEmail = async (req, res) => {
         res.status(500).send('Erro ao enviar e-mail');
       } else {
         console.log('E-mail enviado: ' + info.response);
-        res.status(200).send('E-mail enviado com sucesso');
+        res.status(200).json({ message: 'E-mail enviado com sucesso' });
       }
     });
   } catch (error) {
