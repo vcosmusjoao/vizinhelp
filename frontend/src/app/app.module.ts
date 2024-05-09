@@ -33,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FooterComponent } from './shared/footer/footer.component';
+import { OfferInterestComponent } from './offer-interest/offer-interest.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     OffersDetailsComponent,
     OfferUserListComponent,
     OfferCreateComponent,
-    FooterComponent
+    FooterComponent,
+    OfferInterestComponent
     
   ],
   imports: [

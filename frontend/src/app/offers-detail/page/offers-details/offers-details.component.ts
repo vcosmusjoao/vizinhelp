@@ -12,7 +12,7 @@ export class OffersDetailsComponent implements OnInit{
 
   oferta: any;
   endereco: any;
-  
+  idOferta?:number;
   constructor(
     private route: ActivatedRoute,
     private offerService: OfferService,
@@ -23,8 +23,10 @@ export class OffersDetailsComponent implements OnInit{
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const id = +params['id'];
+
       this.offerService.getOfferDetails(id).subscribe((oferta: any) => {
         this.oferta = oferta;
+        this.idOferta= oferta.offer_id;
         this.cepService.getAddressByCep(oferta.cep).subscribe((endereco: any) => {
           this.endereco = endereco;
           console.log(this.endereco); // Movido o console.log para dentro da assinatura
