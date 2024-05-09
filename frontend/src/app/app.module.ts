@@ -34,6 +34,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FooterComponent } from './shared/footer/footer.component';
 import { OfferInterestComponent } from './offer-interest/offer-interest.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,10 @@ import { OfferInterestComponent } from './offer-interest/offer-interest.componen
     BrowserModule,
     AppRoutingModule,
     KeycloakAngularModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskDirective,
+     NgxMaskPipe
+
   ],
   providers: [
     UserService,
@@ -77,6 +81,7 @@ import { OfferInterestComponent } from './offer-interest/offer-interest.componen
     AuthService, 
     OfferService,
     KeycloakService,
+    provideNgxMask(),
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,

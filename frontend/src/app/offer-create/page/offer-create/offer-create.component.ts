@@ -16,7 +16,7 @@ export class OfferCreateComponent {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       title: ['', Validators.required] ,
-      image_url:[''],
+      image_url:['',Validators.required],
       category:['',Validators.required],
       cep:['',Validators.required],
       availability:[''],
@@ -31,7 +31,8 @@ export class OfferCreateComponent {
       this.offerService.postOffer(this.form.value)
         .subscribe(
           (response) => {
-            console.log('Oferta criada com sucesso!', response);
+            this.form.reset();
+            window.location.reload();
             // Aqui você pode redirecionar para a página de detalhes da oferta, por exemplo
           },
           (error) => {

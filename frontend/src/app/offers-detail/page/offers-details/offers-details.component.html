@@ -18,7 +18,7 @@
         <h2 class="subtitulo">Informações</h2>
         <ul>
           <li><strong>Onde:</strong> {{ endereco?.logradouro }}</li>
-          <li><strong>Quando:</strong> {{ oferta.availability }}</li>
+          <li><strong>Quando:</strong> {{ oferta.availability | date:'dd/MM/yyyy' }}</li>
           <li><strong>Quantidade:</strong> {{ oferta.capacity }}</li>
           <li><strong>Requisitos:</strong> {{ oferta.requirements }}</li>
         </ul>
