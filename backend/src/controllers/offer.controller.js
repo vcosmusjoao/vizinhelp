@@ -33,7 +33,7 @@ exports.createOffer = async (req, res) => {
 
 exports.getAllOffers = async (req, res) => {
   try {
-      const { rows } = await db.query("SELECT * FROM offers");
+      const { rows } = await db.query("SELECT * FROM offers ORDER BY offer_id DESC");
       const offersDTO = rows.map(offer=> new Offer(offer));
       res.status(200).json(offersDTO);
   } catch (error) {
