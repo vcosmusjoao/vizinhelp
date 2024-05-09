@@ -51,7 +51,8 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     OffersDetailsComponent,
     OfferUserListComponent,
     OfferCreateComponent,
-    FooterComponent
+    FooterComponent,
+    OfferInterestComponent
     
   ],
   imports: [

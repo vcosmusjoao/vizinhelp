@@ -1,10 +1,10 @@
-<h1 class="titulo">{{ oferta?.title }}</h1>
-<div class="subtitle">Categoria: {{oferta?.category}}</div>
+<ng-container *ngIf="oferta">
+  <h1 class="titulo">{{ oferta.title }}</h1>
+  <div class="subtitle">Categoria: {{ oferta.category }}</div>
 
-<div *ngIf="oferta" class="detalhes-oferta">
-
+  <div class="detalhes-oferta">
     <img class="imagem-oferta" [src]="oferta.image_url" alt="Imagem da Oferta">
-  
+
     <!-- Grid com descrição e informações -->
     <div class="grid">
       <!-- Descrição da oferta -->
@@ -12,7 +12,7 @@
         <h2 class="subtitulo">Descrição</h2>
         <p>{{ oferta.description }}</p>
       </div>
-  
+
       <!-- Informações da oferta -->
       <div class="coluna-informacoes">
         <h2 class="subtitulo">Informações</h2>
@@ -25,4 +25,6 @@
       </div>
     </div>
   </div>
-  
+
+  <app-offer-interest [offerId]="idOferta"></app-offer-interest>
+</ng-container>
